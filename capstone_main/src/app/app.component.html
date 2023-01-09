@@ -1,0 +1,23 @@
+<body>
+<div class="container-fluid">
+  <!-- class="sticky-top" -->
+
+  <div class="shadow-sm" style="align-items: center;"> 
+    <!-- ------------------nav------------------- -->
+    <nav class="navbar bg-transparent">
+      <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/home"><h1>Capstone.org</h1></a>
+        <form class="d-flex" role="search">
+          <button class="btn btn-outline-success" type="submit"routerLink="/home">Home</button>
+          <button class="btn btn-outline-success" type="submit"routerLink="/onbording">Onbording</button>
+          <button class="btn btn-outline-success" type="submit"routerLink="/help">Help</button>
+        </form>
+      </div>
+    </nav>
+    <hr>
+  </div> 
+    <div class="row">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</body>

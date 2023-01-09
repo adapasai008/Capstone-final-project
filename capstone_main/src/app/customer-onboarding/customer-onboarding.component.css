@@ -1,0 +1,14 @@
+.container {
+  width: 900px;
+}
+input.ng-invalid.ng-touched {
+  border: solid red;
+}
+.btn {
+  box-shadow: 0 5px 10px 0 rgba(9, 2, 21, 0.245),
+    0 5px 10px 0 rgba(22, 22, 22, 0.276);
+}
+.row{
+  margin-top: 20px;
+}
+

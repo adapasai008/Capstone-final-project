@@ -1,0 +1,249 @@
+<div class="container">
+  <div class="row shadow p-3 mb-5 rounded" style="background-color: rgb(249, 244, 249);">
+    <form class="row g-3 was-validated" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="col-md-6">
+        <label for="firstname" class="form-label">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="firstname"
+          id="validationTextarea"
+          #firstname
+          (ngModel)="(firstname)"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="lastname"
+          #lastname
+          (ngModel)="(lastname)"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <div class="form-check form-check-inline">
+          <input
+            type="radio"
+            class="form-check-input"
+            id="validationFormCheck2"
+            name="radio-stacked"
+            required
+          />
+          <label class="form-check-label" for="validationFormCheck2"
+            >Male</label
+          >
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            type="radio"
+            class="form-check-input"
+            id="validationFormCheck3"
+            name="radio-stacked"
+            required
+          />
+          <label class="form-check-label" for="validationFormCheck3"
+            >Female</label
+          >
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox1"
+            value="option1"
+          />
+          <label class="form-check-label" for="inlineCheckbox1">Married</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox2"
+            value="option2"
+          />
+          <label class="form-check-label" for="inlineCheckbox2">Single</label>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          #email
+          (ngModel)="(email)"
+          required
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="accounttype" class="form-label">Account Type</label>
+        <select id="accounttype" class="form-select">
+          <option selected>Current Account</option>
+          <option>Saving Account</option>
+          <option>Salary Account</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <label for="address" class="form-label">Address</label>
+        <input
+          type="text"
+          class="form-control"
+          name="address"
+          #address
+          (ngModel)="(address)"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="city" class="form-label">City</label>
+        <input
+          type="text"
+          class="form-control"
+          name="city"
+          #city
+          (ngModel)="(city)"
+          required
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="state" class="form-label">State</label>
+        <select
+          id="state"
+          class="form-select"
+          #state
+          (ngModel)="(state)"
+          name="state"
+          required
+        >
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Himachal Pradesh">Himachal Pradesh</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="Maharashtra">Maharashtra</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label for="zip" class="form-label">Zip</label>
+        <input
+          type="text"
+          class="form-control"
+          name="zip"
+          #zip
+          (ngModel)="(zip)"
+          required
+        />
+      </div>
+      <div class="col-12">
+        <div class="form-check mb-3">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="validationFormCheck1"
+            required
+          />
+          <label class="form-check-label" for="validationFormCheck1"
+            >By checking this box, you are agreeing to our terms of
+            service</label
+          >
+          <div class="invalid-feedback">please check the box</div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button
+          type="submit"
+          class="btn btn-primary w-100"
+          [disabled]="!f.valid" 
+        >
+          Submit Details
+        </button>
+      </div>
+    </form>
+    <form class="row g-3" style="margin-top: -5px">
+      <div class="col-12">
+        <button
+          class="btn btn-danger w-100"
+          (click)="getByAddress()"
+          [disabled]="!detailsSubmitted"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+        >
+          Validate Address
+        </button>
+      </div>
+    </form>
+  </div>
+  <!-- <div class="row">
+    <div class="col-md-12">
+      <div *ngFor="let address of userAddress">
+        <p *ngIf="users.city === address.city && users.state === address.state">
+          Validation success
+        </p>
+        <p *ngIf="users.city !== address.city && users.state !== address.state">
+            Validation Faild
+          </p>
+        <p>{{ address.city }}</p>
+        <p>{{ address.state }}</p>
+      </div>
+    </div>
+  </div> -->
+</div>
+
+<!-- modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+          Address Validation
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div *ngFor="let address of userAddress">
+          <h3
+            *ngIf="users.city === address.city && users.state === address.state"
+          >
+            Validation success
+          </h3>
+          <h3
+            *ngIf="users.city !== address.city || users.state !== address.state"
+          >
+            Validation Faild
+          </h3>
+        </div>
+      </div>
+      <div class="modal-footer" *ngFor="let address of userAddress">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" 
+        *ngIf="users.city !== address.city || users.state !== address.state">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"  routerLink="/creditCheck"
+        *ngIf="users.city === address.city && users.state === address.state">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
